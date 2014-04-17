@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	<!-- NMML reference: https://gist.github.com/1763850 -->
+
+	<!-- metadata, make sure 'package' is at least 3 segments (ie. com.mycompany.myproject) -->
+	<meta title="haxe-metazelda" package="haxemetazelda" version="1.0.0" company="Julien Samama" />
+
+	<!-- output -->
+	<app main="metazelda.viewer.Main" file="haxemetazelda" path="bin" />
+
+	<window background="#ffffff" fps="60" />
+	<window width="800" height="600" unless="mobile" />
+	<window orientation="landscape" vsync="false" antialiasing="0" if="cpp" />
+
+	<!-- classpath, haxe libs -->
+	<source path="viewer-src" />
+	<source path="src" />
+	<set name="html5-backend" value="openfl-bitfive" if="html5" />
+	<haxelib name="openfl" />
+	<haxelib name="polygonal-ds" />
+
+	<!-- assets -->
+	<icon path="assets/openfl.svg" />
+	<assets path="assets/img" rename="img" />
+
+	<!-- optimize output
+	<haxeflag name="-dce full" /> -->
+	
+</project>
