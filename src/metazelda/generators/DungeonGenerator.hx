@@ -66,7 +66,7 @@ class DungeonGenerator implements IDungeonGenerator
 				}
 			}
 		}
-		return rooms[0];
+		return null;
 	}
 	
 	/**
@@ -88,7 +88,7 @@ class DungeonGenerator implements IDungeonGenerator
 				return d;
 			}
 		}
-		Utils.assert(false, "Room does not have a free edge");
+		Utils.assert(false, 'Room does not have a free edge: $room');
 		return null;
 	}
 	
