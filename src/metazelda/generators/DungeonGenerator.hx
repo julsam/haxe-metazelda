@@ -36,7 +36,7 @@ class DungeonGenerator implements IDungeonGenerator
 	 */
 	public function new(seed:Int, constraints:IDungeonConstraints) 
 	{
-		trace("Dungeon seed:" + seed);
+		//trace("Dungeon seed:" + seed);
 		this.seed = seed;
 		this.random = new Random(seed);
 		Utils.assert(constraints != null);
@@ -623,7 +623,9 @@ class DungeonGenerator implements IDungeonGenerator
 				if (++attempt > MAX_RETRIES) {
 					throw "Dungeon generator failed";
 				}
+				#if debug
 				trace("Retrying dungeon generation...");
+				#end
 			}
 		}
 	}
