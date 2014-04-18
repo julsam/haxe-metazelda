@@ -17,4 +17,6 @@ interface IDungeonGenerator
 	 * @return the most recently generated IDungeon
 	 */
 	public function getDungeon():IDungeon;
+	
+	public function getSeed():Int;
 }

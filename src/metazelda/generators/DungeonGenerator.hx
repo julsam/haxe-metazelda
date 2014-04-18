@@ -632,6 +632,11 @@ class DungeonGenerator implements IDungeonGenerator
 	{
 		return dungeon;
 	}
+	
+	public function getSeed():Int
+	{
+		return seed;
+	}
 }
 
 /**
