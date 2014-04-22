@@ -20,12 +20,6 @@ class AStar
 		this.map = map;
 		this.from = from;
 		this.to = to;
-		/*
-		openSet.enqueue(new PriorityCoords(1, new Coords( -1, 5)));
-		openSet.enqueue(new PriorityCoords(10, new Coords( -3, -3)));
-		openSet.enqueue(new PriorityCoords(5, new Coords( 5, 7)));
-		trace(openSet);
-		*/
 	}
 	
 	private function heuristicDistance(pos:Coords):Float
@@ -99,7 +93,7 @@ class AStar
 		var result:Array<Coords> = new Array<Coords>();
 		var current:Coords = to;
 		while (!current.equals(from)) {
-			result.push(current); // TODO: current.copy() ?
+			result.push(current);
 			current = cameFrom.get(current);
 		}
 		result.reverse();
