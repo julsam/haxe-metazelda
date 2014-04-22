@@ -116,6 +116,11 @@ class Coords implements Comparable<Coords>
 	
 	public inline function toString():String
 	{
-		return '$x, $y';
+		return '($x, $y)';
+	}
+	
+	public function clone():Coords
+	{
+		return new Coords(x, y);
 	}
 }

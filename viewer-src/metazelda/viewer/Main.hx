@@ -10,6 +10,7 @@ import metazelda.constraints.CountConstraints;
 import metazelda.constraints.SpaceConstraints;
 import metazelda.constraints.SpaceMap;
 import metazelda.generators.DungeonGenerator;
+import metazelda.generators.LinearDungeonGenerator;
 import metazelda.util.Coords;
 import metazelda.util.Random;
 import openfl.Assets;
@@ -24,22 +25,33 @@ class Main extends Sprite
 	
 	function regenerate()
 	{
+		var seed = Std.random(metazelda.util.Utils.MAX_VALUE - 1);
+		
 		var constraints:CountConstraints = null;
-		
 		//constraints = getSpaceConstraints("tail.png");
-		
 		if (constraints == null) {
-			constraints = new CountConstraints(25, 4, 1);
+			constraints = new CountConstraints(25, 4, 0);
 		}
 		
-		var seed = Std.random(Random.MAX_VALUE - 1);
-		dungeonGen = new DungeonGenerator(seed, constraints);
+		// Normal Dungeon
+		{
+			//dungeonGen = new DungeonGenerator(seed, constraints);
+		}
+		
+		
+		// Linear Dungeon
+		{
+			constraints.setMaxSwitches(0);
+			dungeonGen = new LinearDungeonGenerator(seed, constraints);
+		}
+		
 		dungeonGen.generate();
 		
 		if (dungeonView != null) {
 			removeChild(dungeonView);
 			dungeonView = null;
 		}
+		
 		dungeonView = new DungeonView();
 		addChild(dungeonView);
 		dungeonView.draw(dungeonGen.getDungeon());

@@ -37,14 +37,7 @@ package metazelda.util;
  * <p>See <a href="http://lab.polygonal.de/?p=162" target="_blank">A good Pseudo-Random Number Generator (PRNG)</a>.</p>
  */
 class Random
-{
-	public static inline var MAX_VALUE =
-	#if neko
-	0x3fffffff;
-	#else
-	0x7fffffff;
-	#end
-	
+{	
 	var _fseed:Float;
 	
 	/**
@@ -63,7 +56,7 @@ class Random
 	public function setSeed(seed:Int):Void
 	{
 		#if !neko
-		Utils.assert(seed >= 0 && seed < MAX_VALUE);
+		Utils.assert(seed >= 0 && seed < Utils.MAX_VALUE);
 		#end
 		
 		_fseed = seed;

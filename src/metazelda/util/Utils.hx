@@ -3,6 +3,13 @@ package metazelda.util;
 
 class Utils
 {
+	public static inline var MAX_VALUE =
+	#if neko
+	0x3fffffff;
+	#else
+	0x7fffffff;
+	#end
+	
 	public static function assert(cond:Bool, msg:String="", ?info:haxe.PosInfos):Void
 	{
 		if (cond != true)
