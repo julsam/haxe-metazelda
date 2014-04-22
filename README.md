@@ -1,6 +1,7 @@
 # haxe-metazelda
 
-Haxe port of Metazelda : https://github.com/tcoxon/metazelda
+Haxe port of Metazelda : https://github.com/tcoxon/metazelda  
+Implementation of an algorithm for procedurally-generating dungeons with Zelda-like item-based puzzles.
 
 ## Overview
 haxe-metazelda is the Haxe port of [metazelda](https://github.com/tcoxon/metazelda). It's organized into 2 separated modules : 
@@ -34,9 +35,7 @@ It has successfully been compiled to flash, html5,  windows & neko. It should wo
 **[Gallery on Imgur](http://imgur.com/a/N4VPm)**
 
 ## Todo
- 1. port AStar (or write my own ?)
- 2. port LinearDungeonGenerator
- 3. improve UI. Maybe use haxeui ?
+ 1. improve UI. Maybe use haxeui ?
  
 ## Licence
  
