@@ -26,7 +26,12 @@ class SpaceMap
 	
 	public function get(c:Coords):Bool
 	{
-		return spaces.contains(c);
+		for (el in spaces) {
+			if (el.equals(c)) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	public function set(c:Coords, val:Bool):Void

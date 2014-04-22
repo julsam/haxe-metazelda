@@ -1,13 +1,18 @@
 package metazelda.viewer;
 
+import flash.display.BitmapData;
 import flash.display.Sprite;
 import flash.events.Event;
 import flash.events.KeyboardEvent;
 import flash.Lib;
 import flash.text.TextField;
 import metazelda.constraints.CountConstraints;
+import metazelda.constraints.SpaceConstraints;
+import metazelda.constraints.SpaceMap;
 import metazelda.generators.DungeonGenerator;
+import metazelda.util.Coords;
 import metazelda.util.Random;
+import openfl.Assets;
 
 class Main extends Sprite 
 {
@@ -19,7 +24,14 @@ class Main extends Sprite
 	
 	function regenerate()
 	{
-		var constraints = new CountConstraints(25, 4, 1);
+		var constraints:CountConstraints = null;
+		
+		//constraints = getSpaceConstraints("tail.png");
+		
+		if (constraints == null) {
+			constraints = new CountConstraints(25, 4, 1);
+		}
+		
 		var seed = Std.random(Random.MAX_VALUE - 1);
 		dungeonGen = new DungeonGenerator(seed, constraints);
 		dungeonGen.generate();
@@ -36,6 +48,27 @@ class Main extends Sprite
 		stage.focus = stage; 
 		
 		seedTextField.text = 'Dungeon seed: ${dungeonGen.getSeed()} | Press <R> to regenerate.';
+	}
+	
+	function getSpaceConstraints(filename:String="turtle.png"):SpaceConstraints
+	{
+		var constraints:SpaceConstraints = null;
+		try	{
+			var spaceMap:SpaceMap = new SpaceMap();
+			var img:BitmapData = Assets.getBitmapData('img/spacemaps/$filename');
+			for (x in 0...img.width) {
+				for (y in 0...img.height) {
+					if (img.getPixel(x, y) & 0xFFFFFF != 0) {
+						spaceMap.set(new Coords(x, y), true);
+					}
+				}
+			}
+			constraints = new SpaceConstraints(spaceMap);
+			
+		} catch (e:Dynamic) {
+			trace("SpaceConstraints creation failed");
+		}
+		return constraints;
 	}
 	
 	function resize(e) 
