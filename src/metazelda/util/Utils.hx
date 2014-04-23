@@ -14,7 +14,10 @@ class Utils
 	{
 		if (cond != true)
 		{
-			throw 'Assertation failed: "$msg"\n${info.fileName}:${info.lineNumber}: Assertation failed in ${info.className}/${info.methodName}()';
+			if (msg != null && msg != "") {
+				msg = 'Assertation failed: "$msg"\n';
+			}
+			throw '$msg${info.fileName}:${info.lineNumber}: Assertation failed in ${info.className}/${info.methodName}()';
 		}
 	}
 	
