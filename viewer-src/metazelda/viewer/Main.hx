@@ -10,6 +10,7 @@ import metazelda.constraints.CountConstraints;
 import metazelda.constraints.SpaceConstraints;
 import metazelda.constraints.SpaceMap;
 import metazelda.generators.DungeonGenerator;
+import metazelda.generators.IDungeonGenerator;
 import metazelda.generators.LinearDungeonGenerator;
 import metazelda.util.Coords;
 import metazelda.util.Random;
@@ -19,7 +20,7 @@ class Main extends Sprite
 {
 	var inited:Bool;
 	
-	var dungeonGen:DungeonGenerator;
+	var dungeonGen:IDungeonGenerator;
 	var dungeonView:DungeonView;
 	var seedTextField:TextField;
 	
@@ -30,7 +31,7 @@ class Main extends Sprite
 		var constraints:CountConstraints = null;
 		//constraints = getSpaceConstraints("tail.png");
 		if (constraints == null) {
-			constraints = new CountConstraints(25, 4, 0);
+			constraints = new CountConstraints(25, 4, 1);
 		}
 		
 		// Normal Dungeon
