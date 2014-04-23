@@ -1,7 +1,10 @@
+![screenshot](http://i.imgur.com/6lPGlV6.png)
+
 # haxe-metazelda
 
 Haxe port of Metazelda : https://github.com/tcoxon/metazelda  
 Implementation of an algorithm for procedurally-generating dungeons with Zelda-like item-based puzzles.
+
 
 ## Overview
 haxe-metazelda is the Haxe port of [metazelda](https://github.com/tcoxon/metazelda). It's organized into 2 separated modules : 
@@ -34,8 +37,15 @@ It has successfully been compiled to flash, html5,  windows & neko. It should wo
 
 **[Gallery on Imgur](http://imgur.com/a/N4VPm)**
 
+## How to use it
+Check out the **[wiki](https://github.com/julsam/haxe-metazelda/wiki)**.
+
 ## Todo
  1. improve UI. Maybe use haxeui ?
+ 2. improve wiki
+   1. more doc
+   2. snippets
+ 3. make an example demo project to show how to use it.
  
 ## Licence
  
